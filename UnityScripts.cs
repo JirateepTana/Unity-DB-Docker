@@ -80,7 +80,7 @@ namespace Unity.FPS.Gameplay
                 // Debug.Log("JSON Data: " + json);
 
                 // Log the JSON data to the console
-                UnityWebRequest request = new UnityWebRequest("http://localhost/api/insert_position.php", "POST");
+                UnityWebRequest request = new UnityWebRequest.Post("http://localhost/api/insert_position.php");
                 byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(json);
                 request.uploadHandler = new UploadHandlerRaw(bodyRaw);
                 request.downloadHandler = new DownloadHandlerBuffer();
