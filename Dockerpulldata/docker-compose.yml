@@ -7,8 +7,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: mydatabase
-      MYSQL_USER: myuser    #user to login web url
-      MYSQL_PASSWORD: mypassword   #password to login web url
+      MYSQL_USER: 1    #user to login web url
+      MYSQL_PASSWORD: 1   #password to login web url
     ports:
       - "3306:3306"
     volumes:
@@ -21,7 +21,7 @@ services:
       PMA_HOST: mysql
       MYSQL_ROOT_PASSWORD: rootpassword
     ports:
-      - "8080:80"
+      - "4100:80" #"8000:80"
     depends_on:
       - mysql
 
@@ -31,7 +31,7 @@ services:
     volumes:
       - ./www:/var/www/html
     ports:
-      - "80:80"
+      - "80:80"  #localport : containerport
     depends_on:
       - mysql
 
