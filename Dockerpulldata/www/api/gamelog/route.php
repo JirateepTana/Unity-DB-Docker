@@ -53,7 +53,9 @@ if ($request_method == 'POST') {
         $map_ID = $_GET['map_ID'];
 
         // Prepare the SQL statement
-        $stmt = $conn->prepare("SELECT score, JSON_UNQUOTE(JSON_EXTRACT(`condition`, '$.TimeTaken')) AS TimeTaken, `Training_Date` FROM gamelog WHERE user_ID = ? AND map_ID = ?");
+        $stmt = $conn->prepare("SELECT score,
+         ROUND(JSON_UNQUOTE(JSON_EXTRACT(`condition`, '$.TimeTaken')),2) AS TimeTaken, 
+         `Training_Date` FROM gamelog WHERE user_ID = ? AND map_ID = ? order by Training_Date desc");
         $stmt->bind_param("ii", $user_ID, $map_ID);
         // Execute the statement
         if ($stmt->execute()) {
