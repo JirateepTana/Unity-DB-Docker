@@ -44,7 +44,7 @@ if ($request_method == 'POST') {
         // Close the statement
         $stmt->close();
     } else {
-        echo "Error: Missing required data";
+        echo "Error: Missing required data"; 
     }
 } elseif ($request_method == 'GET') {
     // Check if user_ID and map_ID are present
